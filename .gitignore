@@ -22,5 +22,10 @@ tmp/
 
 ########### Android ###########
 
+.gradle/
+build/
+
+########### Android ###########
+
 gen/
 lint.xml
