@@ -31,6 +31,18 @@
         <version>0.1.0</version>
     </parent>
 
+
+    <pluginRepositories>
+        <pluginRepository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>gradle-maven-plugin-release</id>
+            <name>gradle-maven-plugin-release</name>
+            <url>http://dl.bintray.com/content/robschoening/gradle-maven-plugin</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -148,6 +160,28 @@
                                 </artifact>
                             </artifacts>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.fortasoft</groupId>
+                <artifactId>gradle-maven-plugin</artifactId>
+                <version>1.0.2-SNAPSHOT</version>
+                <configuration>
+                    <gradleInstallationDir>${env.GRADLE_HOME}</gradleInstallationDir>
+                    <tasks>
+                        <!-- this would effectively call "gradle doSomething" -->
+                        <task>build</task>
+                    </tasks>
+                </configuration>
+                <executions>
+                    <execution>
+                        <!-- You can bind this to any phase you like -->
+                        <phase>compile</phase>
+                        <goals>
+                            <!-- goal must be "invoke" -->
+                            <goal>invoke</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
