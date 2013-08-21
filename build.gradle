@@ -28,7 +28,7 @@ dependencies {
 
 android {
     compileSdkVersion 17
-    buildToolsVersion "17.0"
+    buildToolsVersion "18.0"
 
     // Set up the old project structure for the sources
     sourceSets {
